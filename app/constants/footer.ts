@@ -3,32 +3,32 @@ import { FooterLink } from "../types";
 export const FOOTER_LINKS: FooterLink[] = [
   {
     name: 'LinkedIn',
-    hoverText: 'Connect with me',
+    hoverText: 'Profilimize göz at',
     icon: 'icons/linkedin.svg',
-    url: 'https://www.linkedin.com/in/mohit-virli-4780b6112/',
+    url: 'https://www.linkedin.com/company/groteskmedia/',
   },
   {
-    name: 'GitHub',
-    hoverText: 'Open Sourcing',
-    icon: 'icons/github.svg',
-    url: 'https://github.com/mohitvirli',
+    name: 'Whatsapp',
+    hoverText: 'Bize mesaj at',
+    icon: 'icons/whatsapp.svg',
+    url: 'https://wa.me/905465719920',
   },
   {
-    name: 'Spotify',
-    hoverText: 'Curated playlists',
-    icon: 'icons/spotify.svg',
-    url: 'https://open.spotify.com/user/21hr4w2hzp4ceidewwsb4bxoy',
+    name: 'Youtube',
+    hoverText: 'Profilimize göz at',
+    icon: 'icons/youtube.svg',
+    url: 'https://www.youtube.com/@groteskmedia',
   },
   {
     name: 'Instagram',
-    hoverText: '@clevirli',
+    hoverText: 'Profilimize göz at',
     icon: 'icons/instagram.svg',
-    url: 'https://www.instagram.com/clevirli/',
+    url: 'https://www.instagram.com/groteskmedia/',
   },
   {
-    name: 'Resume',
-    hoverText: 'Download',
-    icon: 'icons/file.svg',
-    url: './Mohit Virli - Resume.pdf',
+    name: 'Mail',
+    hoverText: 'Bize mail gönder',
+    icon: 'icons/mail.svg',
+    url: 'mailto:groteskmedia@gmail.com',
   }
 ];

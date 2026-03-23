@@ -14,12 +14,12 @@ const vercettiFont = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Mohit Virli ✌️",
+  title: "Grotesk ✌️",
   description: "A frontend developer by profession, a creative at heart.",
-  keywords: "Mohit Virli, Frontend Engineer, React Developer, Three.js, Creative Developer, Web Development, Angular, JavaScript, TypeScript, Portfolio",
-  authors: [{ name: "Mohit Virli" }],
-  creator: "Mohit Virli",
-  publisher: "Mohit Virli",
+  keywords: "Grotesk, Frontend Engineer, React Developer, Three.js, Creative Developer, Web Development, Angular, JavaScript, TypeScript, Portfolio",
+  authors: [{ name: "Grotesk" }],
+  creator: "Grotesk",
+  publisher: "Grotesk",
   formatDetection: {
     email: false,
     address: false,
@@ -36,16 +36,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Mohit Virli - Frontend Engineer",
+    title: "Grotesk - Frontend Engineer",
     description: "Frontend engineer by profession, creative at heart.",
     url: "https://mohitvirli.github.io",
-    siteName: "Mohit Virli's Portfolio",
+    siteName: "Grotesk's Portfolio",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mohit Virli - Frontend Engineer",
+    title: "Grotesk - Frontend Engineer",
     description: "Frontend engineer by profession, creative at heart.",
   },
   verification: {
@@ -72,7 +72,7 @@ export default function RootLayout({
       >
         {children}
       </body>
-      <GoogleAnalytics gaId={'G-7WD4HM3XRE'}/>
+      <GoogleAnalytics gaId={'G-7WD4HM3XRE'} />
     </html>
   );
 }

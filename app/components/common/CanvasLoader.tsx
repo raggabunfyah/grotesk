@@ -9,18 +9,23 @@ import { isMobile } from "react-device-detect";
 
 import { useThemeStore } from "@stores";
 
-import AwwardsBadge from "./AwwardsBadge";
 import Preloader from "./Preloader";
 import ProgressLoader from "./ProgressLoader";
 import { ScrollHint } from "./ScrollHint";
+import MobileMenu from "./MobileMenu";
+import MusicPlayer from "./MusicPlayer";
 import ThemeSwitcher from "./ThemeSwitcher";
+import GalleryModal from "./GalleryModal";
+import VideoModal from "./VideoModal";
 // import {Perf} from "r3f-perf"
 
 const CanvasLoader = (props: { children: React.ReactNode }) => {
-  const ref= useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const noiseRef = useRef<HTMLDivElement>(null);
   const backgroundColor = useThemeStore((state) => state.color);
   const { progress } = useProgress();
+  const isDayTheme = backgroundColor === "#0690d4";
   const [canvasStyle, setCanvasStyle] = useState<React.CSSProperties>({
     position: "absolute",
     top: 0,
@@ -38,7 +43,7 @@ const CanvasLoader = (props: { children: React.ReactNode }) => {
         width: 'calc(100% - 2rem)',
         height: 'calc(100% - 2rem)',
       };
-      setCanvasStyle({ ...canvasStyle, ...borderStyle})
+      setCanvasStyle({ ...canvasStyle, ...borderStyle })
     }
   }, [isMobile]);
 
@@ -56,15 +61,31 @@ const CanvasLoader = (props: { children: React.ReactNode }) => {
     gsap.to(canvasRef.current, {
       backgroundColor: backgroundColor,
       duration: 1,
-      ...noiseOverlayStyle,
     });
-  }, [backgroundColor]);
+    gsap.to(noiseRef.current, {
+      opacity: isDayTheme ? 0.2 : 0.24,
+      duration: 1,
+    });
+  }, [backgroundColor, isDayTheme]);
+
+  useGSAP(() => {
+    if (!noiseRef.current) return;
+
+    gsap.set(noiseRef.current, { backgroundPosition: "0px 0px" });
+    gsap.to(noiseRef.current, {
+      backgroundPosition: "180px 140px",
+      duration: 7,
+      ease: "none",
+      repeat: -1,
+      yoyo: true,
+    });
+  }, []);
 
   const noiseOverlayStyle = {
-    backgroundBlendMode: "soft-light",
     backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E\")",
     backgroundRepeat: "repeat",
     backgroundSize: "100px",
+    backgroundPosition: "0px 0px",
   };
 
   return (
@@ -86,12 +107,24 @@ const CanvasLoader = (props: { children: React.ReactNode }) => {
 
             <Preload all />
           </Suspense>
-          <AdaptiveDpr pixelated/>
+          <AdaptiveDpr pixelated />
         </Canvas>
+        <div
+          ref={noiseRef}
+          className="pointer-events-none absolute inset-0"
+          style={{
+            ...noiseOverlayStyle,
+            mixBlendMode: isDayTheme ? "soft-light" : "soft-light",
+            opacity: isDayTheme ? 0.2 : 0.24,
+          }}
+        />
         <ProgressLoader progress={progress} />
       </div>
-      <AwwardsBadge />
       <ThemeSwitcher />
+      <MobileMenu />
+      <MusicPlayer autoStart />
+      <GalleryModal />
+      <VideoModal />
       <ScrollHint />
     </div>
   );

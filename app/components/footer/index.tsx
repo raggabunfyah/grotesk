@@ -1,20 +1,19 @@
-import { Svg, Text, useCursor, useScroll } from "@react-three/drei";
+import { Text, useCursor, useScroll } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import gsap from "gsap";
 import { useEffect, useRef, useState } from "react";
-import { isMobile } from "react-device-detect";
 import * as THREE from "three";
 import { FOOTER_LINKS } from "../../constants";
 import { FooterLink } from "../../types";
 
-const FooterLinkItem = ({ link }: { link: FooterLink }) => {
+const FooterLinkItem = ({ link, isCompact }: { link: FooterLink; isCompact: boolean }) => {
   const textRef = useRef<THREE.Group>(null);
   const [hovered, setHovered] = useState(false);
   const onPointerOver = () => setHovered(true);
   const onPointerOut = () => setHovered(false);
   const onClick = () => window.open(link.url, '_blank');
   const onPointerMove = (e: MouseEvent) => {
-    if (isMobile) return;
+    if (isCompact) return;
     const hoverDiv = document.getElementById(`footer-link-${link.name}`);
     gsap.to(hoverDiv, {
       top: `${e.clientY + 14}px`,
@@ -50,7 +49,7 @@ const FooterLinkItem = ({ link }: { link: FooterLink }) => {
   }, [])
 
   useEffect(() => {
-    if (isMobile) return
+    if (isCompact) return
 
     const hoverDiv = document.getElementById(`footer-link-${link.name}`);
 
@@ -71,10 +70,21 @@ const FooterLinkItem = ({ link }: { link: FooterLink }) => {
     }
   }, [hovered]);
 
-  useCursor(hovered);
+  useCursor(!isCompact && hovered);
 
-  if (isMobile) {
-    return <Svg onClick={onClick} scale={0.0015} position={[0.1, 0.25, 0]} src={link.icon} />;
+  if (isCompact) {
+    return (
+      <Text
+        font="./Vercetti-Regular.woff"
+        fontSize={0.17}
+        color="white"
+        onClick={onClick}
+        anchorX="center"
+        anchorY="middle"
+      >
+        {link.name.toUpperCase()}
+      </Text>
+    );
   }
 
   return (
@@ -87,6 +97,14 @@ const FooterLinkItem = ({ link }: { link: FooterLink }) => {
 const Footer = () => {
   const groupRef = useRef<THREE.Group>(null);
   const data = useScroll();
+  const [isCompact, setIsCompact] = useState(false);
+
+  useEffect(() => {
+    const onResize = () => setIsCompact(window.innerWidth <= 768);
+    onResize();
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
 
   useFrame(() => {
     const d = data.range(0.8, 0.2);
@@ -96,18 +114,39 @@ const Footer = () => {
   });
 
   const getLinks = () => {
-    return FOOTER_LINKS.map((link, i) => {
-      return (
-        <group key={i} position={[i * (isMobile ? 1.1 : 2), 0, 0]}>
-          <FooterLinkItem link={link}/>
-        </group>
-      );
-    });
+    if (isCompact) {
+      const splitIndex = Math.ceil(FOOTER_LINKS.length / 2); // 5 links -> 3 + 2
+      const spacingX = 0.95;
+      const spacingY = 0.28;
+
+      return FOOTER_LINKS.map((link, i) => {
+        const isTopRow = i < splitIndex;
+        const topCount = splitIndex;
+        const bottomCount = FOOTER_LINKS.length - splitIndex;
+        const colIndex = isTopRow ? i : i - splitIndex;
+        const rowCenter = isTopRow ? (topCount - 1) / 2 : (bottomCount - 1) / 2;
+        const bottomRowNudgeX = 0.22;
+        const x = (colIndex - rowCenter) * spacingX + (isTopRow ? 0 : bottomRowNudgeX);
+        const y = isTopRow ? 0 : -spacingY;
+
+        return (
+          <group key={i} position={[x, y, 0]}>
+            <FooterLinkItem link={link} isCompact={isCompact} />
+          </group>
+        );
+      });
+    }
+
+    return FOOTER_LINKS.map((link, i) => (
+      <group key={i} position={[i * 2, 0, 0]}>
+        <FooterLinkItem link={link} isCompact={isCompact} />
+      </group>
+    ));
   };
 
   return (
     <group position={[0, -44, 18]} rotation={[-Math.PI / 2, 0, 0]} ref={groupRef}>
-      <group position={[isMobile ? -2.5 : -4, 0, 0]}>
+      <group position={isCompact ? [0, 0.55, 0] : [-4, 0, 0]}>
         { getLinks() }
       </group>
     </group>

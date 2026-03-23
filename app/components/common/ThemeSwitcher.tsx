@@ -12,6 +12,7 @@ const ThemeSwitcher = () => {
   const { nextColor, color } = useThemeStore();
   const isActive = usePortalStore((state) => state.activePortalId);
   const [positionClass, setPositionClass] = useState<string>('');
+  const [isCompact, setIsCompact] = useState(false);
   const toggleTheme = () => nextColor();
 
   useGSAP(() => {
@@ -23,8 +24,15 @@ const ThemeSwitcher = () => {
   }, [isActive]);
 
   useEffect(() => {
-    setPositionClass(isMobile ? 'top-2 right-2' : 'top-6 right-6');
+    setPositionClass(isMobile ? 'top-5 right-2' : 'top-6 right-7');
   }, [isMobile]);
+
+  useEffect(() => {
+    const onResize = () => setIsCompact(window.innerWidth <= 768);
+    onResize();
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
 
   useEffect(() => {
     const metaThemeColor = document.querySelector('meta[name="theme-color"]')
@@ -33,6 +41,8 @@ const ThemeSwitcher = () => {
       metaThemeColor.setAttribute('content', color);
     }
   }, [color]);
+
+  if (isCompact) return null;
 
   return (
     <div className={`fixed ${positionClass}`} ref={themeSwitcherRef} style={{ opacity: 0, zIndex: 2 }}>

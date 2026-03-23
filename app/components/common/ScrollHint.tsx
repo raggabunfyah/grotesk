@@ -10,21 +10,21 @@ export const ScrollHint = () => {
   const portal = usePortalStore((state) => state.activePortalId);
   const scrollProgress = useScrollStore((state) => state.scrollProgress);
 
-  // Show 'Scroll' for Hero and work portals, 'Pan' for Projects portal.
+  // Show 'Kaydir' for Hero and work portals, 'Pan' for Projects portal.
   useEffect(() => {
     if (!portal) {
       if (scrollProgress === 0) {
-        setHintText('SCROLL');
+        setHintText('KAYDIR');
         setShowScrollHint(true);
       } else {
         setShowScrollHint(false);
       }
     } else {
       if (portal === 'work') {
-        setHintText('SCROLL');
+        setHintText('KAYDIR');
         setShowScrollHint(scrollProgress === 0);
       } else {
-        setHintText('PAN');
+        setHintText('KAYDIR');
         setShowScrollHint(true);
       }
     }
@@ -51,7 +51,7 @@ export const ScrollHint = () => {
   return (
     <div className="fixed w-full bottom-5 scroll-hint" style={{ opacity: 0 }}>
       <div className="flex items-center justify-center animate-pulse">
-        { showScrollHint }
+        {showScrollHint}
         <Image src={svgSrc} width={18} height={18} alt="night mode" loading="lazy" />
         <span className="text-white">{hintText}</span>
       </div>
