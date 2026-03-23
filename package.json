@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start",
     "prepare": "husky",
     "lint": "next lint"
@@ -16,10 +16,10 @@
     "@react-three/fiber": "^9.0.4",
     "@types/three": "^0.173.0",
     "gsap": "^3.12.7",
-    "next": "15.3.3",
-    "react": "^19.0.0",
+    "next": "^16.2.1",
+    "react": "^19.2.4",
     "react-device-detect": "^2.2.3",
-    "react-dom": "^19.0.0",
+    "react-dom": "^19.2.4",
     "three": "^0.173.0",
     "uuid": "^11.1.0",
     "zustand": "^5.0.3"
@@ -30,7 +30,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.1.6",
+    "eslint-config-next": "^16.2.1",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.1",
     "postcss": "^8",
