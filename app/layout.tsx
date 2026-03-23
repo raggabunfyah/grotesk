@@ -1,6 +1,6 @@
-import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata, Viewport } from "next";
 import localFont from 'next/font/local';
+import Script from "next/script";
 import "./globals.css";
 
 const soriaFont = localFont({
@@ -66,6 +66,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const gaId = "G-7WD4HM3XRE";
+
   return (
     <html lang="en" className="overscroll-y-none">
       <body
@@ -73,7 +75,16 @@ export default function RootLayout({
       >
         {children}
       </body>
-      <GoogleAnalytics gaId={'G-7WD4HM3XRE'} />
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${gaId}');`}
+      </Script>
     </html>
   );
 }
