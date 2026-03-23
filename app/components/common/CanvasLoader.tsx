@@ -32,7 +32,7 @@ const CanvasLoader = (props: { children: React.ReactNode }) => {
     bottom: 0,
     left: 0,
     right: 0,
-    opacity: 0,
+    opacity: 1,
     overflow: "hidden",
   });
 
@@ -46,12 +46,6 @@ const CanvasLoader = (props: { children: React.ReactNode }) => {
       setCanvasStyle({ ...canvasStyle, ...borderStyle })
     }
   }, [isMobile]);
-
-  useGSAP(() => {
-    if (progress === 100) {
-      gsap.to('.base-canvas', { opacity: 1, duration: 3, delay: 1 });
-    }
-  }, [progress]);
 
   useGSAP(() => {
     gsap.to(ref.current, {
