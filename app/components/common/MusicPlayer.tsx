@@ -2,8 +2,9 @@
 
 import { useMusicStore, usePortalStore } from '@stores';
 import { useEffect, useRef, useState } from 'react';
+import { publicPath } from '../../utils/publicPath';
 
-const TRACK_PATH = '/audio/theme.wav';
+const TRACK_PATH = publicPath('/audio/theme.wav');
 
 const MusicPlayer = ({ autoStart = false }: { autoStart?: boolean }) => {
   const audioRef = useRef<HTMLAudioElement>(null);

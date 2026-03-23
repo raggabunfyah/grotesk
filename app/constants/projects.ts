@@ -1,12 +1,13 @@
 import { Project } from "../types";
+import { publicPath } from "../utils/publicPath";
 
 // TODO: Move this to API
 export const PROJECTS: Project[] = [
   {
     title: 'CYCLE',
     date: 'Aug 2016',
-    image: '/project-1.webp',
-    gallery: ['/project-1.webp', '/project-1.1.webp', '/project-1.2.webp', '/project-1.3.webp'],
+    image: publicPath('/project-1.webp'),
+    gallery: [publicPath('/project-1.webp'), publicPath('/project-1.1.webp'), publicPath('/project-1.2.webp'), publicPath('/project-1.3.webp')],
     subtext: '“Break The Cycle”, Belgrad Ormanı’nın doğal kaosu içinde tamamen plansız, senaryosuz ve anı yakalayarak çekilmiş bir gerilla video çalışmasıdır.Şehrin baskısından uzaklaşıp doğanın ortasında bile peşimizi bırakmayan döngüleri anlatmak için kamerayı serbest bıraktık.Sadece bir kamerayı açalım ne çıkacak diye başladığımız bir süreçti.',
     videoUrl: 'https://www.youtube.com/watch?v=P3wJ2MQcXvg',
     url: 'https://github.com/mohitvirli/angular-gulp-seed',
@@ -14,8 +15,8 @@ export const PROJECTS: Project[] = [
   {
     title: 'YAYINEVİ',
     date: 'Jul 2020',
-    image: '/project-2-2.webp',
-    gallery: ['/project-2-2.webp', '/project-2.1-2.webp', '/project-2.2-2.webp', '/project-2.4-2.webp'],
+    image: publicPath('/project-2-2.webp'),
+    gallery: [publicPath('/project-2-2.webp'), publicPath('/project-2.1-2.webp'), publicPath('/project-2.2-2.webp'), publicPath('/project-2.4-2.webp')],
     subtext: 'Yayınevi için hazırladığımız bu reklam filminde, markanın hikayesini güçlü bir görsel dil ve akıcı bir kurgu ile yeniden yorumladık. Fikrin çıkış anından final çıktısına kadar tüm süreci yaratıcı bir bakış açısıyla ele aldık. Ortaya çıkan iş, klasik reklam kalıplarının dışına çıkan, dijital dünyaya uyumlu ve güçlü bir marka hissi yaratan bir anlatım sunuyor.',
     videoUrl: 'https://www.youtube.com/watch?v=gBsyHSEktRw',
     url: 'https://github.com/mohitvirli/state.js',
@@ -23,16 +24,16 @@ export const PROJECTS: Project[] = [
   {
     title: 'JAPAN',
     date: 'Jul 2020',
-    image: '/project-3.webp',
-    gallery: ['/project-3.webp', '/project-3.1.webp', '/project-3.2.webp', '/project-3.3.webp'],
+    image: publicPath('/project-3.webp'),
+    gallery: [publicPath('/project-3.webp'), publicPath('/project-3.1.webp'), publicPath('/project-3.2.webp'), publicPath('/project-3.3.webp')],
     subtext: 'Japonya’nın eşsiz doğasından ilham alarak hazırladığımız bu projede; sadelik, denge ve doğayla uyum ana odak noktası oldu. Geleneksel Japon estetiğini modern görsel anlatımla birleştirerek, izleyiciye sakin ama etkileyici bir deneyim sunmayı hedefledik. Doğanın kendi ritmini bozmadan, minimal ve akıcı bir kurgu diliyle ilerleyen projede; her kare huzur, her geçiş ise dinginlik hissi taşıyacak şekilde tasarlandı.',
     url: 'https://github.com/mohitvirli/change-host',
   },
   {
     title: 'BAYRAM',
     date: 'May 2021',
-    image: '/project-4.webp',
-    gallery: ['/project-4.webp', '/project-4.1.webp', '/project-4.2.webp', '/project-4.3.webp'],
+    image: publicPath('/project-4.webp'),
+    gallery: [publicPath('/project-4.webp'), publicPath('/project-4.1.webp'), publicPath('/project-4.2.webp'), publicPath('/project-4.3.webp')],
     subtext: 'Ünsallar Parke için hazırladığımız bu yapay zeka destekli reklam filminde, markanın kalite ve estetik anlayışını modern bir anlatım diliyle buluşturduk. Projede yapay zeka teknolojilerini yaratıcı süreçle entegre ederek, klasik reklam algısının dışına çıkan dinamik ve dikkat çekici bir dünya kurduk. Her sahne, hem gerçekçilik hem de estetik açıdan güçlü bir etki yaratacak şekilde tasarlandı.',
     videoUrl: 'https://www.youtube.com/watch?v=inWiPB8QPSE',
     url: 'https://github.com/mohitvirli/vaccine-slots-discord-bot',
@@ -40,8 +41,8 @@ export const PROJECTS: Project[] = [
   {
     title: 'MAYRA',
     date: 'Aug 2024',
-    image: '/project-5.webp',
-    gallery: ['/project-5.webp', '/project-5.1.webp', '/project-5.2.webp', '/project-5.3.webp'],
+    image: publicPath('/project-5.webp'),
+    gallery: [publicPath('/project-5.webp'), publicPath('/project-5.1.webp'), publicPath('/project-5.2.webp'), publicPath('/project-5.3.webp')],
     subtext: 'Mayra Medikal için hazırladığımı bu tanıtım filminde, markanın güvenilir yapısını ve profesyonel hizmet anlayışını ön plana çıkardık. Sağlık sektörünün gerektirdiği hassasiyetle, temiz, net ve güven veren bir görsel dil oluşturduk. Projede; detaylara odaklanan çekim teknikleri ve sade bir kurgu ile markanın uzmanlığını ve hizmet kalitesini güçlü bir şekilde yansıttık.',
     videoUrl: 'https://www.youtube.com/watch?v=rezJrPUngTY',
     url: 'https://github.com/mohitvirli/chat-bot-vercel',
@@ -49,8 +50,8 @@ export const PROJECTS: Project[] = [
   {
     title: 'RUN&GUN',
     date: 'Oct 2024',
-    image: '/project-6.webp',
-    gallery: ['/project-6.webp', '/project-6.1.webp', '/project-6.2.webp', '/project-6.3.webp'],
+    image: publicPath('/project-6.webp'),
+    gallery: [publicPath('/project-6.webp'), publicPath('/project-6.1.webp'), publicPath('/project-6.2.webp'), publicPath('/project-6.3.webp')],
     subtext: 'Planlı senaryoların dışına çıkarak tamamen anın akışına odaklandığımız bu projede, spontane anları yakalamayı merkeze aldık. Hızlı hareket, doğal ışık ve gerçek zamanlı kararlarla dinamik bir çekim süreci yürüttük. Freestyle yaklaşım sayesinde, yapaylıktan uzak, ham ve gerçek bir görsel dil oluşturduk. Her kare; kontrol edilmemiş gibi görünen ama güçlü bir estetik taşıyan anlardan oluşuyor.',
     videoUrl: 'https://www.youtube.com/watch?v=Do3brMZ5AZU',
     url: 'https://github.com/mohitvirli/word-game',
@@ -58,8 +59,8 @@ export const PROJECTS: Project[] = [
   {
     title: 'NIGHT',
     date: 'Mar 2025',
-    image: '/project-7png.webp',
-    gallery: ['/project-7png.webp', '/project-7.1.webp', '/project-7.2.webp'],
+    image: publicPath('/project-7png.webp'),
+    gallery: [publicPath('/project-7png.webp'), publicPath('/project-7.1.webp'), publicPath('/project-7.2.webp')],
     subtext: 'Grotesk olarak gerçekleştirdiğimiz Night projesi, Kadıköy’ün gece atmosferini sinematik bir bakış açısıyla ele aldığımız özel bir çekim çalışmasıdır. Şehrin ışıkları, sokak dokusu ve gece hayatının dinamik yapısı; estetik kadrajlar, modern kurgu dili ve güçlü renk tonlarıyla yeniden yorumlandı.',
     videoUrl: 'https://www.youtube.com/watch?v=X2pWroxAWq0',
     url: 'https://www.youtube.com/watch?v=oauQSEySkoQ',
@@ -67,8 +68,8 @@ export const PROJECTS: Project[] = [
   {
     title: 'HOTEL',
     date: 'Apr 2025',
-    image: '/PROJECT-8.2.webp',
-    gallery: ['/PROJECT-8.webp', '/PROJECT-8.1.webp', '/PROJECT-8.2.webp', '/PROJECT-8.3.webp'],
+    image: publicPath('/PROJECT-8.2.webp'),
+    gallery: [publicPath('/PROJECT-8.webp'), publicPath('/PROJECT-8.1.webp'), publicPath('/PROJECT-8.2.webp'), publicPath('/PROJECT-8.3.webp')],
     subtext: 'Grotesk olarak hazırladığımız bu otel tanıtım filminde, markanın konfor, estetik ve misafir deneyimi anlayışını modern bir anlatım diliyle buluşturduk. Mekânın mimari detaylarını, atmosferini ve sunduğu ayrıcalıklı yaşam hissini sinematik bir yaklaşımla ön plana çıkardık. Görüntü dili, ışık kullanımı ve kurgu yapısını markanın prestijli kimliğini destekleyecek şekilde kurguladık. Proje sürecinde yaratıcı prodüksiyon tekniklerini kullanarak klasik tanıtım filmi anlayışının dışına çıkan, dinamik ve etkileyici bir görsel dünya oluşturduk. Her sahne, izleyicide güçlü bir atmosfer ve gerçeklik hissi uyandıracak şekilde titizlikle tasarlandı.',
     videoUrl: 'https://www.youtube.com/watch?v=-l2bcaJnxh4',
     url: 'https://github.com/mohitvirli/mohitvirli.github.io',
@@ -76,8 +77,8 @@ export const PROJECTS: Project[] = [
   {
     title: 'ALTIN KAPI',
     date: 'Jun 2025',
-    image: '/project-9.webp',
-    gallery: ['/project-9.webp', '/project-9.1.webp', '/project-9.2.webp', '/project-9.3.webp'],
+    image: publicPath('/project-9.webp'),
+    gallery: [publicPath('/project-9.webp'), publicPath('/project-9.1.webp'), publicPath('/project-9.2.webp'), publicPath('/project-9.3.webp')],
     subtext: 'Altın Kapı eğlence kanalının yarışma programı formatını modern bir anlatım diliyle buluşturduk. Programın rekabet ve eğlence duygusunu, hızlı kurgu, güçlü görüntü dili ve dinamik sahne yapılarıyla ön plana çıkardık. Proje sürecinde yaratıcı prodüksiyon teknikleri kullanarak klasik YouTube içerik anlayışının dışına çıkan hareketli ve dikkat çekici bir atmosfer oluşturduk. Her sahne, izleyiciye tempo, heyecan ve eğlence hissini birlikte verecek şekilde tasarlandı.',
     videoUrl: 'https://www.youtube.com/watch?v=Mw0sl7J9Ts0',
     url: 'https://github.com/mohitvirli/focus-clock',

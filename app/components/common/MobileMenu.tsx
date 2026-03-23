@@ -5,6 +5,7 @@ import { PROJECTS } from "@constants";
 import { useThemeStore } from "@stores";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { publicPath } from "../../utils/publicPath";
 
 const MobileMenu = () => {
   const [isCompact, setIsCompact] = useState(false);
@@ -62,7 +63,7 @@ const MobileMenu = () => {
           style={{ backgroundColor: "#f85f2cff" }}
         >
           <div className="mb-6 flex items-center justify-between">
-            <Image src="/logosvg.svg" alt="logo" width={148} height={34} priority />
+            <Image src={publicPath("/logosvg.svg")} alt="logo" width={148} height={34} priority />
             <button
               type="button"
               onClick={() => setIsOpen(false)}
@@ -93,7 +94,7 @@ const MobileMenu = () => {
             onClick={nextColor}
             className="mt-6 inline-flex items-center gap-2 rounded-full border border-white px-3 py-2 text-xs font-bold text-white"
           >
-            <Image src="icons/night-mode.svg" width={16} height={16} alt="Tema" loading="lazy" />
+            <Image src={publicPath("/icons/night-mode.svg")} width={16} height={16} alt="Tema" loading="lazy" />
             Aydınlık/Karanlık
           </button>
         </div>

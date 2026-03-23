@@ -7,6 +7,7 @@ import * as THREE from "three";
 
 import { useGalleryStore, useMusicStore, usePortalStore, useVideoStore } from "@stores";
 import { Project } from "@types";
+import { publicPath } from "../../../utils/publicPath";
 
 interface ProjectTileProps {
   project: Project;
@@ -35,7 +36,7 @@ const ProjectTile = ({ project, index, position, rotation, activeId, onClick }: 
   const openGalleryModal = useGalleryStore((state) => state.openGallery);
   const openVideoModal = useVideoStore((state) => state.openVideo);
   const requestMusicPause = useMusicStore((state) => state.requestPause);
-  const previewTexture = useTexture(project.image ?? "/project-1.png");
+  const previewTexture = useTexture(publicPath(project.image ?? "/project-1.png"));
   const galleryImages = useMemo(() => {
     if (project.gallery && project.gallery.length > 0) return project.gallery;
     if (project.image) return [project.image];

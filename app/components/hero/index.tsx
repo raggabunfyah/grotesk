@@ -4,6 +4,7 @@ import { useProgress, useTexture } from "@react-three/drei";
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
+import { publicPath } from "../../utils/publicPath";
 import CloudContainer from "../models/Cloud";
 import WindowModel from "../models/WindowModel";
 import TextWindow from "./TextWindow";
@@ -11,7 +12,7 @@ import TextWindow from "./TextWindow";
 const Hero = () => {
   const titleRef = useRef<THREE.Mesh>(null);
   const { progress } = useProgress();
-  const HERO_LOGO_PATH = '/logosvg.svg';
+  const HERO_LOGO_PATH = publicPath('/logosvg.svg');
   const LOGO_WIDTH = 9;
   const LOGO_ASPECT_RATIO = 1920 / 1080;
   const LOGO_HEIGHT = LOGO_WIDTH / LOGO_ASPECT_RATIO;
