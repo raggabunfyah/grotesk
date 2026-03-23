@@ -15,6 +15,7 @@ import { useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
 import * as THREE from 'three';
 import { GLTF } from 'three-stdlib'
+import { publicPath } from '../../utils/publicPath';
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -30,7 +31,7 @@ const WindowModel = (props: Partial<THREE.Object3D>) => {
   const handleRef = useRef<THREE.Mesh>(null);
   const windowRef = useRef<THREE.Mesh>(null);
 
-  const { nodes, materials } = useGLTF('models/window.glb', true ) as GLTFResult
+  const { nodes, materials } = useGLTF(publicPath('/models/window.glb'), true ) as GLTFResult
   const data = useScroll();
   useFrame(() => {
     const b = data.range(0.4, 0.1);
@@ -72,6 +73,6 @@ const WindowModel = (props: Partial<THREE.Object3D>) => {
   )
 }
 
-useGLTF.preload('models/window.glb');
+useGLTF.preload(publicPath('/models/window.glb'));
 
 export default WindowModel;
