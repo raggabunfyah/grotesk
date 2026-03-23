@@ -14,6 +14,7 @@ const vercettiFont = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://mohitvirli.github.io"),
   title: "Grotesk ✌️",
   description: "A frontend developer by profession, a creative at heart.",
   keywords: "Grotesk, Frontend Engineer, React Developer, Three.js, Creative Developer, Web Development, Angular, JavaScript, TypeScript, Portfolio",
